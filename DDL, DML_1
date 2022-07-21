@@ -1,0 +1,74 @@
+-Создать БД
+CREATE DATABASE publisher
+
+-Создать таблицу
+CREATE TABLE publisher
+(
+    publisher_id integer PRIMARY KEY,
+    org_name varchar(128) NOT NULL,
+    address text NOT null
+);
+CREATE TABLE book
+(
+    book_id integer PRIMARY KEY,
+    titke text NOT NULL,
+    isbn varchar(32) NOT NULL
+);
+
+-Внести данные
+INSERT INTO book
+VALUES
+(1, 'Harry', '1000'),
+(2, 'Ron', '1001'),
+(3, 'Germy', '1002'),
+(4, 'Hagry', '1003'),
+(5, 'Damby', '1004'),
+(6, 'Slezy', '1005'),
+(7, 'Macky', '1006'),
+(8, 'Snapy', '1007'),
+(9, 'Doodly', '1008'),
+(10, 'Malfy', '1009');
+INSERT INTO publisher
+VALUES
+(1, 'Social Library', 'NSK'),
+(2, 'School Library', 'MSK'),
+(3,'Teachers Library', 'VDK'),
+(4, 'Poor Library', 'EKB'),
+(5, 'Prof Library', 'SPB'),
+(6, 'Doctor Library', 'MSK'),
+(7, 'Foregine Library', 'SPB'),
+(8, 'Solo Library', 'Tomsk'),
+(9, 'Multy Library', 'VDK'),
+(10, 'Copy and go', 'VLK')
+
+-Вывести все колонки
+SELECT *
+FROM publisher
+
+-Вывести определенную колонку
+SELECT publisher_id
+FROM publisher
+
+-Вывести определенную колонку и присвоить ей новое имя
+SELECT publisher_id AS org_id
+FROM publisher
+
+-Обновить значения в одной из строк таблицы
+UPDATE publisher SET publisher_id = 18 WHERE publisher_id = 8
+
+-Удалить строку из таблицы
+DELETE FROM publisher WHERE publisher_id = 18;
+
+-Вывести данные таблицы с сортировкой по убыванию по одному из столбцов
+SELECT *
+FROM publisher
+ORDER by publisher_id DESC
+
+-Вывести данные таблицы с сортировкой по возростанию по одному из столбцов
+SELECT *
+FROM publisher
+ORDER by publisher_id
+
+-Вывести данные таблицы с указанием какого-то конкретного признака (признак - адрес - MSK)
+SELECT *  
+FROM publisher WHERE address = 'MSK';
